@@ -29,6 +29,7 @@ class Bicicleta{
         $this->extra_info = $extra_info;
     }
 
+
     public function getId(){
         return $this->id;
     }

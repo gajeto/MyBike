@@ -26,7 +26,7 @@
                      <div class='user-setting-form'>
                         <div class='row'>
                            <div class='col-sm-12 center'>
-                              <form class="form-horizontal new-bike" id="new_bike" enctype="multipart/form-data" action="/garage/bikes" accept-charset="UTF-8" method="post">
+                              <form class="form-horizontal new-bike" id="new_bike"  action="../Controller/Actions/registrar_nueva.php" accept-charset="UTF-8" method="post">
                                  <input name="utf8" type="hidden" value="&#x2713;"/>
                                  <input type="hidden" name="authenticity_token" value="kOLqV/HmWo+CXkZhXIBS7v6KpoJcQftCZMIJGiP7wIz3fOQTNmojsXNxoULryEw8iy6ufKxIx7A4DlRVvzhGaw=="/>
                                  <div class='row'>
@@ -42,7 +42,7 @@
                                              <div class='col-sm-5'>
                                                 <div class='form-group'>
                                                    <div class='checkbox'>
-                                                      <input class='form-checkbox help' id='bike_stolen' name='start_alert' type='checkbox'>
+                                                      <input class='form-checkbox help' id='bike_stolen' name='estado' type='checkbox' value ='Robada'>
                                                       <label class='help red' style='line-height: 1'>Reportar como robada
                                                       </label>
                                                    </div>
@@ -54,14 +54,14 @@
                                                 <div class='form-group'>
                                                    <label class='control-label'>Nombre de la bicicleta
                                                    </label>
-                                                   <input autocomplete='off' autofocus class='form-control' maxlength='255' name='bike[name]' placeholder='' spellcheck='false' type='text'>
+                                                   <input class='form-control' maxlength='255' name='nombre' spellcheck='false' type='text'>
                                                 </div>
                                              </div>
                                              <div class='col-sm-5 col-sm-offset-1'>
                                                 <div class='form-group'>
                                                    <label class='control-label'>Número serial
                                                    </label>
-                                                   <input class='form-control' id='serial_number' maxlength='255' name='bike[serial_number]' placeholder="Usualmente está grabado en el cuadro" type='text'>
+                                                   <input class='form-control' id='serial_number' maxlength='255' name='serial' placeholder="Usualmente está grabado en el cuadro" type='text'>
                                                 </div>
                                              </div>
                                           </div>
@@ -70,17 +70,14 @@
                                                 <div class='form-group manufacturers'>
                                                    <label class='control-label'>Marca
                                                    </label>
-                                                   <input autocomplete='off' class='typeahead form-control' maxlength='255' name='bike[manufacturer_string]' placeholder='' spellcheck='false' type='text'>
-                                                   <input id="manufacturer_id" type="hidden" name="bike[manufacturer_id]"/>
-                                                   <input id="bike_model_id" type="hidden" name="bike[bike_model_id]"/>
-                                                   <input id="bike_build_id" type="hidden" name="bike[bike_build_id]"/></input>
+                                                   <input class='form-control' maxlength='255' name='marca'  spellcheck='false' type='text'>
                                                 </div>
                                              </div>
                                              <div class='col-sm-5 col-sm-offset-1'>
                                                 <div class='form-group bike_models'>
                                                    <label class='control-label'>Modelo
                                                    </label>
-                                                   <input autocomplete='off' class='typeahead form-control' maxlength='255' name='bike[model_string]' placeholder='' spellcheck='false' type='text'>
+                                                   <input class='form-control' maxlength='255' name='modelo' spellcheck='false' type='text'>
                                                 </div>
                                              </div>
                                           </div>
@@ -93,7 +90,7 @@
                                                    <i class='fa fa-question-circle blue help_button' data-help-text="¿No ves el color de tu bicicleta? Escoge el que más se parezca. Así garantizamos mejores resultados en la búsqueda y recuperación." data-target='#help_modal' data-toggle='modal'></i>
                                                    </span>
                                                    </label>
-                                                   <select class="form-control" name="bike[primary_color]" id="bike_primary_color">
+                                                   <select class="form-control" name="color_p" id="bike_primary_color">
                                                       <option value=""></option>
                                                       <option value="Negro">Negro</option>
                                                       <option value="Azul">Azul</option>
@@ -117,7 +114,7 @@
                                                 <div class='form-group'>
                                                    <label class='control-label'>Color secundario
                                                    </label>
-                                                   <select class="form-control" name="bike[secondary_color]" id="bike_secondary_color">
+                                                   <select class="form-control" name="color_s" id="bike_secondary_color">
                                                       <option value=""></option>
                                                       <option value="Negro">Negro</option>
                                                       <option value="Azul">Azul</option>
@@ -143,7 +140,7 @@
                                                 <div class='form-group'>
                                                    <label class='control-label'>Tipo de bicicleta
                                                    </label>
-                                                   <select class="form-control" name="bike[bike_type_id]" id="bike_bike_type_id">
+                                                   <select class="form-control" name="tipo" id="bike_bike_type_id">
                                                       <option value=""></option>
                                                       <option value="BMX">BMX</option>
                                                       <option value="Montaña">Montaña</option>
@@ -176,7 +173,7 @@
                                                 <div class='form-group'>
                                                    <label class='control-label'>Valor comercial
                                                    </label>
-                                                   <input class='form-control' id='bike_value' limit='2000000000' maxlength='7' name='bike[bike_value]' oninput="this.value=this.value.replace(/[^0-9]/g,'');" type='text'>
+                                                   <input class='form-control' id='bike_value' limit='2000000000' maxlength='7' name='valor' oninput="this.value=this.value.replace(/[^0-9]/g,'');" type='text'>
                                                 </div>
                                              </div>
                                             
@@ -186,15 +183,14 @@
                                                 <div class='form-group'>
                                                    <label class='left' style='text-transform:none;'>Si tienes algún dato adicional que pueda ayudar a identificar tu bicicleta, ponlo en este espacio
                                                    </label>
-                                                   <input autocomplete='off' class='form-control' id='email' maxlength='255' name='bike[email]' placeholder='' spellcheck='false' type='text'>
+                                                   <input autocomplete='off' class='form-control' id='email' maxlength='255' name='info' placeholder='' spellcheck='false' type='text'>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
-                                       <input id='registration_type' name='bike[registration_type]' type='hidden' value='Personal'>
-                                       <input id='new_bike' name='bike[new_bike]' type='hidden' value='true'>
+
                                        <hr>
-                                       <input type="submit" name="commit" value="Registrar Bicicleta" class="btn form-submit" id="submit_btn" data-disable-with="Saving"/>
+                                       <input type="submit" name="commit" value="Registrar Bicicleta" class="btn form-submit" id="submit_btn" data-disable-with="Registrando"/>
                                        <a class='btn' href='/bikes' id='clear_search'>Cancelar
                                        </a>
                                     </div>

@@ -80,12 +80,11 @@ class BicicletaDAO {
 
     public function modificarbicicleta(Bicicleta $bicicleta, $id){
         $data_source= new DataSource();
-        $sql = "UPDATE bicicletas SET id=:id, estado=:estado, numero_serial=:numero_serial, nombre=:nombre, 
+        $sql = "UPDATE bicicletas SET estado=:estado, numero_serial=:numero_serial, nombre=:nombre, 
         marca=:marca, modelo=:modelo, color1=:color1, color2=:color2, tipo=:tipo, valor=:valor, 
         extra_info=:extra_info WHERE id = :id";
 
         $resultado = $data_source->ejecutarActualizacion($sql, array(
-                ':id'=>$bicicleta->getId(),
                 ':estado'=>$bicicleta->getEstado(),
                 ':numero_serial'=>$bicicleta->getNumeroSerial(),
                 ':nombre'=>$bicicleta->getNombre(),
