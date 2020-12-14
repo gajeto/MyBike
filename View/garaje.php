@@ -1,3 +1,16 @@
+<?php
+session_start();
+require_once (__DIR__."/../Controller/MDB/BicicletaMDB.php");
+
+
+if(!empty($_SESSION)) {
+    $c = count(array_keys($_SESSION));
+}else{
+    $c = 0;
+}
+
+?>
+
 <!DOCTYPE html>
 <html class='csstransforms csstransforms3d csstransitions' lang='en-US'>
    <head>
@@ -18,7 +31,7 @@
    <body>
       <?php include "templates/header.php"; ?>
       
-      <div class='page-tile tile-1 top-tile' style='background-image: url(assets/garaje.jpg);'>
+      <div class='page-tile tile-1 top-tile' style='background-image: url(images/garaje.jpg);'>
          <div class='home-content'>
             <div class='frost' style='margin: 0px; padding: 0px;'>
                <div aria-multiselectable='true' class='panel-group bigger_text' id='accordian' role='tablist' style='margin-bottom: 1px;'>
@@ -28,13 +41,13 @@
                            <div class='row'>
                               <div class='col-xs-12 col-sm-6 bigonly'>
                                  <div class='left' style='padding-top: 25px;'>
-                                    <h2 class='panel-title gray-text'>Tus bicicletas (2)</h2>
+                                    <h2 class='panel-title gray-text'>Tus bicicletas (<?php echo $c ?>)</h2>
                                  </div>
                               </div>
                               <div class='col-xs-12 col-md-6'>
                                  <div class='row' style='padding: 0px;'>
                                     <div class='col-xs-7 col-lg-6 col-lg-offset-3 col-sm-3 col-sm-offset-7 right' style='padding-top: 15px;'>
-                     <a class='btn btn-sm btn-danger headline sml_btn' data-turbolinks='false' href='/bikes/quick_panic'>
+                     <a class='btn btn-sm btn-danger headline sml_btn' data-turbolinks='false' href='reporte_rapido.php'>
                      <i class='fa fa-exclamation-triangle'></i>
                      <span class='smallonly'>¿Bicicleta robada?
                      </span>
@@ -43,7 +56,7 @@
                      </a>
                      </div>
                      <div class='col-xs-3 col-sm-2 right' style='padding-top: 15px;'>
-                     <a class='btn btn-sm headline sml_btn' data-turbolinks='false' href='/garage/bikes/new'>
+                     <a class='btn btn-sm headline sml_btn' data-turbolinks='false' href='agregar_bicicleta.php'>
                      <i class='fa fa-plus-circle'></i>
                      Agregar
                      </a>
@@ -53,104 +66,54 @@
                      </div>
                      </div>
                      </a>
+                     <form action="../Controller/Actions/cargar_bicicletas.php" method="POST">
                      <div class='clearfix'></div>
                      <div aria-labelledby='garageName' class='panel-collapse collapse in' id='garageBody' role='tabpanel'>
                         <div class='garage-body'>
+
                            <div class='col-sm-12 left' style='margin: 0px; padding: 0px;'>
-                              <div class='col-sm-6 col-xs-12' style='margin: 0px; padding: 0px; max-height: 250px'>
-                                 <a data-turbolinks='false' href='/garage/bikes/pump-bell-wheel-basket/edit'>
-                                    <div class='row bike bike-back' style="background: url('//project529.com/garage/assets/missing_bike_default_ext-5aba3c2789d165338252e82c9ed3d26ea44f75520b0435eab371979da457b9b3.png'); background-repeat: no-repeat; background-size: cover; background-position:center;">
-                                       <div class='bike-glass'>
-                                          <div class='col-sm-9'>
-                                             <div class='caption'>
-                                                <div class='label label-info upper'>New</div>
-                                                &nbsp;
-                                                <div class='name'>gdg</div>
-                                                Bronze
-                                                <div class='serial'>
-                                                   Serial Number
-                                                   <span>
-                                                      <div class='yellow'>Add Serial Number</div>
-                                                   </span>
+                              <?php if (isset($_SESSION['b0'])): ?>
+                                 <?php foreach ($_SESSION as $i => $value): ?>
+   
+
+                                    <div class='col-sm-6 col-xs-12' style='margin: 0px; padding: 0px; max-height: 250px'>
+                                       <a data-turbolinks='false' href='editar_bicicleta.php'>
+                                          <div class='row bike bike-back' style="background: url('assets/bike_default.png'); background-repeat: no-repeat; background-size: cover; background-position:center;">
+                                             <div class='bike-glass'>
+                                                <div class='col-sm-9'>
+                                                   <div class='caption'>
+                                                      <div class='label label-info upper'>Nueva</div>
+                                                      &nbsp;
+                                                      <div class='name'> <?php echo $_SESSION[$i]['MARCA']; ?></div>
+                                                       <?php echo $_SESSION[$i]['MODELO']; ?>
+                                                      <div class='serial'>
+                                                         Serial Number  <?php echo $_SESSION[$i]['SERIAL']; ?>
+                                                      </div>
+                                                      <div class='yellow'>
+                                                         <i class='fa fa-gear'></i>
+                                                         Editar 
+                                                      </div>
+                                                   </div>
                                                 </div>
-                                                <div class='yellow'>
-                                                   <i class='fa fa-gear'></i>
-                                                   Edit Bike
+                                                <div class='col-sm-3'>
+                                                   <div class='lock-level'>
+                                                      <img height='50px;' src='https://project529.com/garage/assets/shield_0_0@2x-e64a11e00563515fc63320fdf15648413e5947ed6313a3305ec086482728f95d.png'>
+                                                   </div>
                                                 </div>
                                              </div>
                                           </div>
-                                          <div class='col-sm-3'>
-                                             <div class='lock-level'>
-                                                <img height='50px;' src='https://project529.com/garage/assets/shield_0_0@2x-e64a11e00563515fc63320fdf15648413e5947ed6313a3305ec086482728f95d.png'>
-                                             </div>
-                                          </div>
-                                       </div>
+                                       </a>
                                     </div>
-                                 </a>
-                              </div>
-                              <div class='col-sm-6 col-xs-12' style='margin: 0px; padding: 0px; max-height: 250px'>
-                                 <a data-turbolinks='false' href='/garage/bikes/tap-gear-hub-tap/edit'>
-                                    <div class='row bike bike-back' style="background: url('//project529.com/garage/assets/missing_bike_default_ext-5aba3c2789d165338252e82c9ed3d26ea44f75520b0435eab371979da457b9b3.png'); background-repeat: no-repeat; background-size: cover; background-position:center;">
-                                       <div class='bike-glass'>
-                                          <div class='col-sm-9'>
-                                             <div class='caption'>
-                                                <div class='label label-info upper'>New</div>
-                                                &nbsp;
-                                                <div class='name'>sfsf</div>
-                                                <div class='serial'>
-                                                   Serial Number
-                                                   <span>
-                                                      <div class='yellow'>Add Serial Number</div>
-                                                   </span>
-                                                </div>
-                                                <div class='yellow'>
-                                                   <i class='fa fa-gear'></i>
-                                                   Edit Bike
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class='col-sm-3'>
-                                             <div class='lock-level'>
-                                                <img height='50px;' src='https://project529.com/garage/assets/shield_0_0@2x-e64a11e00563515fc63320fdf15648413e5947ed6313a3305ec086482728f95d.png'>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
+
+                                 <?php endforeach; ?>
+                              <?php endif; ?>
                            </div>
                         </div>
                      </div>
+                     </form>
                   </div>
                </div>
-               <div aria-multiselectable='true' class='panel-group bigger_text' id='accordian' role='tablist' style='margin-bottom: 1px;'>
-                  <div class='garage-group' style='background: rgba(250,250,250,.7);'>
-                     <a aria-controls='lockGarageBody' aria-expanded='false' class='light_hover' data-parent='#accordion' data-toggle='collapse' href='#lockGarageBody' role='button'>
-                        <div class='panel-heading' id='lockGarageName' role='tab'>
-                           <div class='row'>
-                              <div class='col-sm-9'>
-                                 <div class='left' style='padding-top: 15px;'>
-                                    <h2 class='panel-title gray-text bigonly'>Accesorios</h2>
-                                 </div>
-                              </div>
-                              <div class='col-xs-12 col-sm-3'>
-                                 <div class='right add_btn'>
-                     <a class='btn headline' data-turbolinks='false' href='/garage/locks/new'>
-                     <i class='fa fa-plus-circle'></i>
-                     Agrega un accesorio
-                     </a>
-                     </div>
-                     </div>
-                     </div>
-                     </div>
-                     </a>
-                     <div aria-labelledby='lockGarageName' class='panel-collapse collapse in' id='lockGarageBody' role='tabpanel'>
-                        <div class='garage-body'>
-                           <div class='col-sm-12 left' style='margin: 0px; padding: 0px;overflow-y: scroll;'></div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+
                <div aria-multiselectable='true' class='panel-group bigger_text' id='accordian' role='tablist' style='margin-bottom: 1px;'>
                   <div class='garage-group' style='background: rgba(250,250,250,.7);'>
                      <a aria-controls='spottedGarageBody' aria-expanded='false' class='light_hover' data-parent='#accordion' data-toggle='collapse' href='#spottedGarageBody' role='button'>
@@ -163,7 +126,7 @@
                               </div>
                               <div class='col-xs-12 col-sm-3'>
                                  <div class='right add_btn'>
-                     <a class='btn headline' data-turbolinks='false' href='/garage/recovered_bikes/new'>
+                     <a class='btn headline' data-turbolinks='false' href='bicicleta_encontrada.php'>
                      <i class='fa fa-plus-circle'></i>
                      Agrega una bicicleta
                      </a>

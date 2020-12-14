@@ -32,7 +32,7 @@ require_once (__DIR__."/../Controller/MDB/BicicletaMDB.php");
             <div class='frost' style='margin: 0px; padding: 0px; margin-bottom: 50px; '>
                <div class='main div white'>
                   <span id='search_filter_form'>
-                     <form id="search_form" action="../Controller/Actions/mostrar_bicicletas.php" accept-charset="UTF-8" data-remote="true" method="POST">
+                     <form id="search_form" action="../Controller/Actions/cargar_bicicletas.php" accept-charset="UTF-8" data-remote="true" method="POST">
                         <div class='div blue_background' style='border-bottom: 1px solid #ccc'>
                            <a class='white' data-turbolinks='false' href='bicicleta_encontrada.php' style='cursor: pointer'>¿Encontraste una bicicleta? Posteala en bicicletas encontradas.
                            </a>
