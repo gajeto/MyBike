@@ -1,0 +1,1 @@
+https://bogota.gov.co/mi-ciudad/movilidad/resuelve-tus-dudas-sobre-la-plataforma-registro-bici-bogota
