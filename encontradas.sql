@@ -22,9 +22,10 @@ CREATE TABLE `encontradas` (
     `fecha` DATE NOT NULL,
     `lugar` VARCHAR(30) NOT NULL,
     `info_lugar` VARCHAR(100),
-    `foto` VARCHAR(10),
+    `foto` VARCHAR(255),
     `detalles` VARCHAR(100),
     `email` VARCHAR(20),
+    
     
     PRIMARY KEY (`id`),
     UNIQUE KEY `e_serial` (`e_serial`)

@@ -5,9 +5,9 @@ require_once (__DIR__ . "/../Entities/Perdida.php");
 
 class PerdidaDAO {
 
-    public function buscarPerdidaSegunFiltro($filtro){
+    public function buscarPerdidaSegunSerial($nserial){
         $data_source = new DataSource();
-        $data_table= $data_source->ejecutarConsulta("SELECT * FROM perdidas WHERE filtro = :filtro", array(':filtro'=>$filtro));
+        $data_table= $data_source->ejecutarConsulta("SELECT * FROM perdidas WHERE nserial = :nserial", array(':nserial'=>$nserial));
         $perdida=null;
         if(count($data_table)==1){
             foreach($data_table as $indice => $valor){

@@ -36,7 +36,7 @@ class EncontradaDAO {
 
     public function leerEncontradas(){
         $data_source = new DataSource();
-        $data_table = $data_source->ejecutarConsulta("SELECT id,e_serial,marca,modelo,color1,color2,codigo,tipo,fecha,lugar,info_lugar,foto,detalles,email FROM encontradas");
+        $data_table = $data_source->ejecutarConsulta("SELECT id,e_serial,marca,modelo,color1,color2,codigo,tipo, fecha,lugar,info_lugar,foto,detalles,email FROM encontradas");
         $encontrada=null;
         $encontradas=array();
         foreach($data_table as $indice=>$valor){

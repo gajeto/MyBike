@@ -14,7 +14,7 @@
                 $_SESSION['e'.$i]['COLOR'] = $encontrada->getColor1();
                 $_SESSION['e'.$i]['TIPO'] = $encontrada->getTipo();
             }    
-            header("Location: ../../View/garaje.php");
+            header("Location: ../../View/bicicletas_encontradas.php");
         }else{
             $errMsg .= 'No hay usuarios para mostrar';
             header("Location: ../../View/login.php");    

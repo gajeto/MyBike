@@ -40,7 +40,7 @@ require_once (__DIR__."/../Controller/MDB/EncontradaMDB.php");
                                     </div>
                                     <p></p>
                                  </div>
-                                 <form class="form-horizontal new-bike" action="../Controller/Actions/registrar_encontrada.php" accept-charset="UTF-8" method="post">
+                                 <form class="form-horizontal new-bike" action="../Controller/Actions/registrar_encontrada.php" accept-charset="UTF-8" method="post"  enctype="multipart/form-data">
                                   
                                    
                                   
@@ -205,8 +205,9 @@ require_once (__DIR__."/../Controller/MDB/EncontradaMDB.php");
                                                    <br>
                                                    <a class='btn add_photo colwidth' data-placement='left' data-toggle='tooltip' title='Add a photo of the drive train side of the bike'>
                                                    <span class='fa fa-upload'></span>
-                                                   <Cargar></Cargar>
-                                                   <input class="opacity" type="file" id="photo" name="foto" onchange="getImage(this);"/>
+                                                   
+                                                   <input class="opacity" type="file" name="file">
+                                                   <input class="opacity" type="submit" name="submit" value='Upload'>
                                                    </a>
                                                    <p></p>
                                                    <br>

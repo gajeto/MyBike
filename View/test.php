@@ -1,13 +1,3 @@
-<?php
-session_start();
-require_once (__DIR__."/../Controller/MDB/BicicletaMDB.php");
-require_once (__DIR__."/../Controller/MDB/PerdidaMDB.php");
-
-$bike_serial = $_GET['serial'];
-session_destroy();
-?>
-
-
 <!DOCTYPE html>
 <html class='csstransforms csstransforms3d csstransitions' lang='en-US'>
    <head>
@@ -27,44 +17,35 @@ session_destroy();
    </head>
    <body>
       <?php include "templates/header.php"; ?>
-     
-        
-    
-
+      
       <div class='page-tile tile-1 top-tile' style='background-image: url(https://project529.com/garage/assets/bridge_bike_2-a751b7668dd679ea72f14671b0ed089ed111ac546ec0a26bd5ff1aacc9d8210d.jpg); '>
          <div class='home-content'>
             <div class='frost' style='margin: 0px; margin-bottom: 100px;'>
                <div class='row'>
                   <div class='col-md-12'>
-
                      <div class='user-setting-form'>
                         <div class='row'>
                            <div class='col-sm-12 left' style='padding: 0px; margin: 0px'>
                               <div class='description' itemid='634200' itemscope itemtype='http://schema.org/IndividualProduct'>
+                                 <link href='http://www.productontology.org/id/Racing_bicycle' itemprop='additionalType'>
                                  <div class='row' style='padding: 0px; margin: 0px'>
                                     <div class='col-md-5'>
                                        <div class='row' style='padding: 0px; margin: 0px'>
                                           <div class='col-sm-12'>
                                              <h2>
-                                                <span itemprop='color'>
-                                                  <?php echo $_SESSION['REPORTE']['marca'];  ?>
+                                                <span itemprop='color'>Bronze
                                                 </span>
-                                                <span itemprop='manufacturer'>
-                                                  <?php echo $_SESSION['REPORTE']['modelo'];  ?>
-                                                </span>
-                                                <span itemprop='model'>
-                                                  <?php echo $_SESSION['REPORTE']['color'];  ?>
-                                                </span>
-                                                
+                                                <span itemprop='manufacturer'></span>
+                                                <span itemprop='model'></span>
+                                                Custom
                                              </h2>
                                           </div>
                                        </div>
                                        <div class='row'>
                                           <div class='col-sm-1'>
-                                             <div>
+                                             <div class='small'>
                                                 <a class='btn black' data-no-turbolink href='/garage/bikes/pump-bell-wheel-basket/panic'>Editar
                                                 </a>
-                                                 <input type="hidden" name="n_serial" value="<?php echo $bike_serial ?>"/>
                                              </div>
                                              <p></p>
                                           </div>
@@ -76,17 +57,11 @@ session_destroy();
                                                 <div class='row'>
                                                    <div class='col-md-4'>Detalles:</div>
                                                    <div class='col-md-8'>
-                                                      
-                                                      Tipo de bicicleta:
-                                                      <span itemprop='bike_type'>
-                                                        <?php echo $_SESSION['REPORTE']['tipo'];  ?>
-                                                      </span>
                                                       <br>
-                                                      Serial:
-                                                      <span itemprop='bike_type'>
-                                                        <?php echo $_SESSION['REPORTE']['serial'];  ?>
+                                                      Tipo de bicicleta:
+                                                      <span itemprop='bike_type'>Custom
                                                       </span>
-
+                                                   </div>
                                                 </div>
                                              </div>
                                           </div>
@@ -98,12 +73,10 @@ session_destroy();
                                              <div class='row'>
                                                 <div class='col-md-4'>Vista por última vez:</div>
                                                 <div class='col-md-8 left'>
-                                                   <?php echo $_SESSION['REPORTE']['fecha'];  ?>
+                                                   12/11/2020
                                                    <br>
-                                                    <?php echo $_SESSION['REPORTE']['lugar'];  ?>
-                                                   <div class='location'>
-                                                      <?php echo $_SESSION['REPORTE']['infol'];  ?>
-                                                   </div>
+                                                   En mi casa
+                                                   <div class='location'></div>
                                                 </div>
                                              </div>
                                           </div>
@@ -115,11 +88,9 @@ session_destroy();
                                                 <hr style='border-top: 1px solid #777777;'>
                                                 <div class='row'>
                                                    <div class='col-md-4'>Contactar propietario:</div>
-                                                   <div class='col-md-8 left'>    
-                                                    <?php echo $_SESSION['REPORTE']['detalles'];  ?>
+                                                   <div class='col-md-8 left'>
+                                                      <a class="btn black" href="/garage/bikes/pump-bell-wheel-basket/bolo_reply">Responder</a>
                                                    </div>
-                                                   <br>
-                                                   <a class="btn black">Responder</a>
                                                 </div>
                                              </div>
                                           </div>
@@ -149,6 +120,7 @@ session_destroy();
                                                             </button>
                                                          </li>
                                                          <li>
+                                                            <a href="mailto:?body=My%20%20%20bicycle%20was%20stolen.%20Let%20me%20know%20if%20you%27ve%20seen%20it%21&amp;subject=Help%20me%20find%20my%20bike.">
                                                             <button class='like-button subtle_btn black'>
                                                             <i class='fa fa-envelope'></i>
                                                             Email
@@ -174,10 +146,9 @@ session_destroy();
                                        <div class='row'>
                                           <div class='col-sm-12'>
                                              <div class='make_square'>
-                                                <img class='img-rounded' src='images/bike4.jpg' 
-                                                    style='width:100%; height: auto;'>
-                                                  <a href='images/bike4.jpg' target='_blank'>
-                                                
+                                                <a href='https://529garage-production.s3.amazonaws.com/photos/attachments/000/887/073/large/artwork-vasily-kandinsky-composition-8-37.262.jpg?1607728187' target='_blank'>
+                                                <img class='img-rounded' src='https://529garage-production.s3.amazonaws.com/photos/attachments/000/887/073/medium/artwork-vasily-kandinsky-composition-8-37.262.jpg?1607728187' style='width:100%; height: auto;'>
+                                                </a>
                                              </div>
                                           </div>
                                        </div>
@@ -192,13 +163,12 @@ session_destroy();
                            </div>
                         </div>
                      </div>
-
                   </div>
                </div>
             </div>
          </div>
       </div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9ttt-QoQlQMWJ8WSdkR8_o2Z-xWSPNkA&amp;libraries=geometry" type="text/javascript"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9ttt-QoQlQMWJ8WSdkR8_o2Z-xWSPNkA&amp;libraries=geometry" type="text/javascript"></script>
       <script>
          $(document).ready(function() {
          

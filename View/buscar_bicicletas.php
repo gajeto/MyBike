@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once (__DIR__."/../Controller/MDB/PerdidaMDB.php");
-session_destroy();
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ session_destroy();
             <div class='frost' style='margin: 0px; padding: 0px; margin-bottom: 50px; '>
                <div class='main div white'>
                   <span id='search_filter_form'>
-                     <form id="search_form" action="../Controller/Actions/cargar_perdidas.php" accept-charset="UTF-8" data-remote="true" method="POST">
+                     <form id="search_form" action="../Controller/Actions/cargar_perdidas.php" accept-charset="UTF-8" method="POST">
                         <div class='div blue_background' style='border-bottom: 1px solid #ccc'>
                            <a class='white' data-turbolinks='false' href='reportar_vista.php' style='cursor: pointer'>¿Viste una bicicleta y crees que es robada? Reportala aquí
                            </a>
@@ -231,7 +231,7 @@ session_destroy();
                                           <div class='row' style='padding: 0px;'>
                                              <div class='col-xs-6 col-sm-2 col-md-4 search_btns'>
                                                 <div class='form-group'>
-                                                   <input type="submit" name="commit" value="Buscar" class="btn form-submit" id="search_submit"/>
+                                                   <input type="submit" value="Buscar" class="btn form-submit"/>
                                                 </div>
                                              </div>
                                              <div class='col-xs-6 col-sm-2 col-md-4'>
@@ -280,10 +280,11 @@ session_destroy();
                   <?php if (isset($_SESSION['p0'])): ?>
                         <?php foreach ($_SESSION as $i => $value): ?>
                             <?php $n = substr($i,-1)  ?>
-                            
+                                
+                                <form action="../Controller/Actions/cargar_reporte.php" method="POST">
                                 <div class="bike_result" data-id ="<?php echo $n ?>" style='position: relative;'>
                                     <div class="col-xs-12 bike_search_results  col-sm-6 col-md-4 col-lg-3" style="margin: 0px; padding: 0px; align: left;">
-                                      <a href= "pagina_reporte.php" target="_blank">
+                                        <a href="../Controller/Actions/cargar_reporte.php" target="_blank">
                                         <div class="row bike bike-back" style="background-size: cover; background: url('images/stoned.jpg') no-repeat center;">
                                           <div class="bike-glass">
                                             <div class="col-xs-10 left">
@@ -308,6 +309,8 @@ session_destroy();
                                                 <div class="serial">
                                                   Serial Number:
                                                   <span>
+                                                     <input type="hidden" name="numero_serial" 
+                                                     value="<?php echo "AX12345" ?>"/>
                                                     <?php echo $_SESSION[$i]['SERIAL']; ?>
                                                   </span>
                                                   <br>
@@ -328,6 +331,7 @@ session_destroy();
                                       </a>
                                     </div>
                                 </div>
+                                </form>
                         <?php endforeach; ?>
                   <?php endif; ?>
            </div>

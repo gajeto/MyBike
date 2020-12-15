@@ -281,9 +281,10 @@ session_destroy();
                         <?php foreach ($_SESSION as $i => $value): ?>
                             <?php $n = substr($i,-1)  ?>
                             
+                                <form method="POST">
                                 <div class="bike_result" data-id ="<?php echo $n ?>" style='position: relative;'>
                                     <div class="col-xs-12 bike_search_results  col-sm-6 col-md-4 col-lg-3" style="margin: 0px; padding: 0px; align: left;">
-                                      <a href= "pagina_reporte.php" target="_blank">
+                                      <a href= "">
                                         <div class="row bike bike-back" style="background-size: cover; background: url('images/stoned.jpg') no-repeat center;">
                                           <div class="bike-glass">
                                             <div class="col-xs-10 left">
@@ -316,7 +317,7 @@ session_destroy();
                                                 </div>
 
                                                 <div class="serial">
-                                                  Serial Number:
+                                                  Numero Serial:
                                                   <span>
                                                     <?php echo $_SESSION[$i]['SERIAL']; ?>
                                                   </span>
@@ -325,7 +326,7 @@ session_destroy();
 
 
                                               <div class="bike-type">
-                                                Bike Type: <?php echo $_SESSION[$i]['TIPO']; ?>
+                                                Tipo: <?php echo $_SESSION[$i]['TIPO']; ?>
                                                 <br>
                                               </div>
 
@@ -338,6 +339,7 @@ session_destroy();
                                       </a>
                                     </div>
                                 </div>
+                                </form>
                         <?php endforeach; ?>
                   <?php endif; ?>
            </div>

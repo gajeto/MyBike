@@ -1,9 +1,9 @@
 <?php
 
-function buscarPerdidaSegunFiltro($filtro){
+function buscarPerdidaSegunSerial($nserial){
     require_once(__DIR__."/../../Model/DAO/PerdidaDAO.php");
     $dao=new PerdidaDAO();
-    $perdida = $dao->buscarPerdidaSegunFiltro($filtro);
+    $perdida = $dao->buscarPerdidaSegunSerial($nserial);
     return $perdida;
 }
 
