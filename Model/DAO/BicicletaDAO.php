@@ -85,6 +85,7 @@ class BicicletaDAO {
         extra_info=:extra_info WHERE id = :id";
 
         $resultado = $data_source->ejecutarActualizacion($sql, array(
+                ':id'=>$bicicleta->getId(),
                 ':estado'=>$bicicleta->getEstado(),
                 ':numero_serial'=>$bicicleta->getNumeroSerial(),
                 ':nombre'=>$bicicleta->getNombre(),

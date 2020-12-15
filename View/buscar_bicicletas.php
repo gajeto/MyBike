@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once (__DIR__."/../Controller/MDB/BicicletaMDB.php");
-
+session_destroy();
 ?>
 
 <!DOCTYPE html>

@@ -7,7 +7,7 @@ $home = "..";
 
 $errMsg = 'OK';
 
-$id = 10;
+$id = 11;
 $estado = "Normal";
 $nombre = $_POST['nombre'];
 $serial = $_POST['serial'];
