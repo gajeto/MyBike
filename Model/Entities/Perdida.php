@@ -2,7 +2,7 @@
 
 class Perdida{
     private $id;
-    private $serial;
+    private $nserial;
     private $fecha;
     private $hora;
     private $lugar;
@@ -14,9 +14,9 @@ class Perdida{
     private $telefono;
 
 
-    public function __construct($id,$serial,$fecha,$hora,$lugar,$info_lugar,$detalles,$recompensa,$nombre,$email,$telefono){
+    public function __construct($id,$nserial,$fecha,$hora,$lugar,$info_lugar,$detalles,$recompensa,$nombre,$email,$telefono){
         $this->id = $id;
-        $this->serial = $serial;
+        $this->nserial = $nserial;
         $this->fecha = $fecha;
         $this->hora = $hora;
         $this->lugar = $lugar;
@@ -57,11 +57,11 @@ class Perdida{
     }
 
     public function getSerial(){
-        return $this->serial;
+        return $this->nserial;
     }
 
     public function setSerial($serial){
-        $this->serial = $serial;
+        $this->nserial = $nserial;
         return $this;
     }
 

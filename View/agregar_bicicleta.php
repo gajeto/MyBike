@@ -42,7 +42,7 @@
                                              <div class='col-sm-5'>
                                                 <div class='form-group'>
                                                    <div class='checkbox'>
-                                                      <input class='form-checkbox help' id='bike_stolen' name='estado' type='checkbox' value ='Robada'>
+                                                      <input class='form-checkbox help' id='bike_stolen' name='estado' type='checkbox'>
                                                       <label class='help red' style='line-height: 1'>Reportar como robada
                                                       </label>
                                                    </div>

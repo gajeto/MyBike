@@ -12,7 +12,7 @@
                 $_SESSION['p'.$i]['HORA']= $perdida->getHora();
                 $_SESSION['p'.$i]['NOMBRE']= $perdida->getNombre();
             }     
-            header("Location: ../../View/bicicletas_recuperadas.php");
+            header("Location: ../../View/buscar_bicicletas.php");
         }else{
             $errMsg .= 'No hay usuarios para mostrar';
             header("Location: ../../View/login.php");    

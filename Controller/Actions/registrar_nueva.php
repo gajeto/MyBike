@@ -7,8 +7,13 @@ $home = "..";
 
 $errMsg = 'OK';
 
-$id = 11;
-$estado = "Normal";
+$id = 1;
+$estado = $_POST['estado'];
+	if ($estado != NULL) {
+		$estado = "Robada";
+	}else{
+		$estado = "Nueva";
+	}
 $nombre = $_POST['nombre'];
 $serial = $_POST['serial'];
 $marca = $_POST['marca'];
@@ -24,7 +29,7 @@ $bike = new Bicicleta($id,$estado,$serial, $nombre,$marca,$modelo,$color_p,$colo
 $operacion = insertarBicicleta($bike);
 
 if($operacion != NULL){
-    header("Location: ../../View/buscar_bicicletas.php"); // ENVIAR AL HOMEPAGES DEL USUARIO
+    header("Location: ../../View/garaje.php"); // ENVIAR AL HOMEPAGES DEL USUARIO
 }else{
     $errMsg .= 'Usuario y/o contraseña no válido';
     header("Location: ../../View/index.php"); //ENVIAR AL LOGIN NUEVAMENTE

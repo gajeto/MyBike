@@ -5,9 +5,9 @@ require_once (__DIR__ . "/../Entities/Bicicleta.php");
 
 class BicicletaDAO {
 
-    public function buscarBicicletaSegunFiltro($filtro){
+    public function buscarBicicletaSegunNombre($nombre){
         $data_source = new DataSource();
-        $data_table= $data_source->ejecutarConsulta("SELECT * FROM bicicletas WHERE filtro = :filtro", array(':filtro'=>$filtro));
+        $data_table= $data_source->ejecutarConsulta("SELECT * FROM bicicletas WHERE nombre = :nombre", array(':nombre'=>$nombre));
         $bicicleta=null;
         if(count($data_table)==1){
             foreach($data_table as $indice => $valor){
@@ -57,10 +57,9 @@ class BicicletaDAO {
 
     public function insertarBicicleta(Bicicleta $bicicleta){
         $data_source= new DataSource();
-        $sql = "INSERT INTO bicicletas VALUES (:id, :estado, :numero_serial, :nombre, :marca, :modelo, :color1, :color2, :tipo, :valor, :extra_info)";
+        $sql = "INSERT INTO bicicletas (estado, numero_serial, nombre, marca, modelo, color1, color2, tipo, valor, extra_info) VALUES (:estado, :numero_serial, :nombre, :marca, :modelo, :color1, :color2, :tipo, :valor, :extra_info)";
 
         $resultado = $data_source->ejecutarActualizacion($sql, array(
-                ':id'=>$bicicleta->getId(),
                 ':estado'=>$bicicleta->getEstado(),
                 ':numero_serial'=>$bicicleta->getNumeroSerial(),
                 ':nombre'=>$bicicleta->getNombre(),

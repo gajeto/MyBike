@@ -2,7 +2,7 @@
 session_start();
 
 $nombre = $_GET['name'];
-//$bike_serial = $_GET['serial'];
+$bike_serial = $_GET['serial'];
 
 ?>
 
@@ -79,6 +79,7 @@ $nombre = $_GET['name'];
                                                                     <div class='form-group'>
                                                                         <label class='col-sm-12 control-label' style='text-align: left !important;'>¿Cuándo fue la última vez que viste tu bicicleta?
                                                                         </label>
+                                                                        <input type="hidden" name="perdida_serial" value="<?php echo $bike_serial ?>"/>
                                                                     </div>
                                                                 </div>
                                                                 <div class='row'>

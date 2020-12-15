@@ -1,9 +1,9 @@
 <?php
 
-function buscarBicicletaSegunFiltro($filtro){
+function buscarBicicletaSegunNombre($nombre){
     require_once(__DIR__."/../../Model/DAO/BicicletaDAO.php");
     $dao=new BicicletaDAO();
-    $bicicleta = $dao->buscarBicicletaSegunFiltro($filtro);
+    $bicicleta = $dao->buscarBicicletaSegunNombre($nombre);
     return $bicicleta;
 }
 

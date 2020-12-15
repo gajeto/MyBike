@@ -88,7 +88,7 @@
                   </h3>
                   Ayúdanos a devolverla a su propietario. Seguro le hace falta.
                </div>
-               <a class='btn' data-turbolinks='false' href='bicicleta_encontrada.php' style='margin-bottom: 10px;'>
+               <a class='btn' data-turbolinks='false' href='reportar_vista.php' style='margin-bottom: 10px;'>
                Reportar hallazgo
                </a>
             </div>

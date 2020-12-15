@@ -12,22 +12,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `perdidas` (
     `id` INT(5) NOT NULL AUTO_INCREMENT,
-    `serial` VARCHAR(10) NOT NULL,
+    `nserial` VARCHAR(10) NOT NULL,
     `fecha` DATE NOT NULL,
 	`hora` VARCHAR(10) NOT NULL,
     `lugar` VARCHAR(60) NOT NULL,
     `info_lugar` VARCHAR(60) NOT NULL,
-    `detalles` VARCHAR(10) NOT NULL,
+    `detalles` VARCHAR(60) NOT NULL,
     `recompensa` VARCHAR(10) NOT NULL,
-    `nombre` VARCHAR(10),
-    `email` VARCHAR(10),
-    `telefono` INT(12),
+    `nombre` VARCHAR(20),
+    `email` VARCHAR(20),
+    `telefono` VARCHAR(12),
     
     PRIMARY KEY (`id`),
-    UNIQUE KEY `serial` (`serial`)
+    UNIQUE KEY `nserial` (`nserial`)
 )  ENGINE=INNODB DEFAULT CHARSET=LATIN1;
 
-INSERT INTO `perdidas` (`id`,`serial`,`fecha`,`hora`,`lugar`, `info_lugar`, `detalles`, `recompensa`,`nombre`,`email`,`telefono`) VALUES
+INSERT INTO `perdidas` (`id`,`nserial`,`fecha`,`hora`,`lugar`, `info_lugar`, `detalles`, `recompensa`,`nombre`,`email`,`telefono`) VALUES
 (1, 'AX35635', '2020-12-14', '08:30','Sincelejo','En la esquina de la casa', 'Buscar luna azul','20000','','',''),
 (2, 'AX12345', '2020-12-15', '17:45','Bquilla','No hay des', 'Depende','Maravilla','Plegable','gusta@gmail.com','625126');
 

@@ -47,7 +47,7 @@ if(!empty($_SESSION)) {
                               <div class='col-xs-12 col-md-6'>
                                  <div class='row' style='padding: 0px;'>
                                     <div class='col-xs-7 col-lg-6 col-lg-offset-3 col-sm-3 col-sm-offset-7 right' style='padding-top: 15px;'>
-                     <a class='btn btn-sm btn-danger headline sml_btn' data-turbolinks='false' href='reporte_rapido.php'>
+                     <a class='btn btn-sm btn-danger headline sml_btn' data-turbolinks='false' href='iniciar_alerta.php'>
                      <i class='fa fa-exclamation-triangle'></i>
                      <span class='smallonly'>¿Bicicleta robada?
                      </span>
@@ -82,7 +82,7 @@ if(!empty($_SESSION)) {
                                              <div class='bike-glass'>
                                                 <div class='col-sm-9'>
                                                    <div class='caption'>
-                                                      <div class='label label-info upper'>Nueva</div>
+                                                      <div class='label label-info upper'><?php echo $_SESSION[$i]['ESTADO']; ?></div>
                                                       &nbsp;
                                                       <div class='name'> <?php echo $_SESSION[$i]['MARCA']; ?></div>
                                                        <?php echo $_SESSION[$i]['MODELO']; ?>
@@ -126,7 +126,7 @@ if(!empty($_SESSION)) {
                               </div>
                               <div class='col-xs-12 col-sm-3'>
                                  <div class='right add_btn'>
-                     <a class='btn headline' data-turbolinks='false' href='bicicleta_encontrada.php'>
+                     <a class='btn headline' data-turbolinks='false' href='reportar_vista.php'>
                      <i class='fa fa-plus-circle'></i>
                      Agrega una bicicleta
                      </a>

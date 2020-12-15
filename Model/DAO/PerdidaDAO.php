@@ -13,7 +13,7 @@ class PerdidaDAO {
             foreach($data_table as $indice => $valor){
                 $perdida = new Perdida(
                     $data_table[$indice]["id"],
-                    $data_table[$indice]["serial"],
+                    $data_table[$indice]["nserial"],
                     $data_table[$indice]["fecha"],
                     $data_table[$indice]["hora"],
                     $data_table[$indice]["lugar"],
@@ -33,13 +33,13 @@ class PerdidaDAO {
 
     public function leerPerdidas(){
         $data_source = new DataSource();
-        $data_table = $data_source->ejecutarConsulta("SELECT id,serial,fecha,hora,lugar,info_lugar,detalles, recompensa,nombre,email,telefono FROM perdidas");
+        $data_table = $data_source->ejecutarConsulta("SELECT id,nserial,fecha,hora,lugar,info_lugar,detalles, recompensa,nombre,email,telefono FROM perdidas");
         $perdida=null;
         $perdidas=array();
         foreach($data_table as $indice=>$valor){
             $perdida = new Perdida(
                 $data_table[$indice]["id"],
-                $data_table[$indice]["serial"],
+                $data_table[$indice]["nserial"],
                 $data_table[$indice]["fecha"],
                 $data_table[$indice]["hora"],
                 $data_table[$indice]["lugar"],
@@ -57,11 +57,11 @@ class PerdidaDAO {
 
     public function insertarPerdida(Perdida $perdida){
         $data_source= new DataSource();
-        $sql = "INSERT INTO perdidas VALUES (:id,:serial,:fecha,:hora,:lugar,:info_lugar,:detalles,:recompensa,:nombre,:email,:telefono)";
+        $sql = "INSERT INTO perdidas (nserial,fecha,hora,lugar,info_lugar,detalles,recompensa,nombre,email,telefono)
+                    VALUES (:nserial,:fecha,:hora,:lugar,:info_lugar,:detalles,:recompensa,:nombre,:email,:telefono)";
 
         $resultado = $data_source->ejecutarActualizacion($sql, array(
-                ':id'=>$perdida->getId(),
-                ':serial'=>$perdida->getSerial(),
+                ':nserial'=>$perdida->getSerial(),
                 ':fecha'=>$perdida->getFecha(),
                 ':hora'=>$perdida->getHora(),
                 ':lugar'=>$perdida->getLugar(),
@@ -80,11 +80,11 @@ class PerdidaDAO {
 
     public function modificarPerdida(Perdida $perdida, $id){
         $data_source= new DataSource();
-        $sql = "UPDATE perdidas SET id=:id,serial=:serial,fecha=:fecha,hora=:hora,lugar=:lugar,info_lugar=:info_lugar,detalles=:detalles, recompensa=:recompensa,nombre=:nombre,email=:email,telefono=:telefono WHERE id = :id";
+        $sql = "UPDATE perdidas SET id=:id,nserial=:nserial,fecha=:fecha,hora=:hora,lugar=:lugar,info_lugar=:info_lugar,detalles=:detalles, recompensa=:recompensa,nombre=:nombre,email=:email,telefono=:telefono WHERE id = :id";
 
         $resultado = $data_source->ejecutarActualizacion($sql, array(
                 ':id'=>$perdida->getId(),
-                ':serial'=>$perdida->getSerial(),
+                ':nserial'=>$perdida->getSerial(),
                 ':fecha'=>$perdida->getFecha(),
                 ':hora'=>$perdida->getHora(),
                 ':lugar'=>$perdida->getLugar(),

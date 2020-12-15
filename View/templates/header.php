@@ -36,9 +36,9 @@
                   </a>
                </li>
                <li>
-                  <a data-turbolinks='false' href='bicicletas_recuperadas.php'>
+                  <a data-turbolinks='false' href='bicicletas_encontradas.php'>
                   <span>
-                  Bicicletas recuperadas
+                  Bicicletas encontradas
                   </span>
                   </a>
                </li>
@@ -76,8 +76,8 @@
                </a>
             </li>
             <li>
-               <a data-turbolinks='false' href='bicicletas_recuperadas.php'>
-               Bicicletas recuperadas
+               <a data-turbolinks='false' href='bicicletas_encontradas.php'>
+               Bicicletas encontradas
                </a>
             </li>
             <li>

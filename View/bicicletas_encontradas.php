@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once (__DIR__."/../Controller/MDB/PerdidaMDB.php");
-
+session_destroy();
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ require_once (__DIR__."/../Controller/MDB/PerdidaMDB.php");
                   <span id='search_filter_form'>
                      <form id="search_form" action="../Controller/Actions/cargar_perdidas.php" accept-charset="UTF-8" data-remote="true" method="POST">
                         <div class='div blue_background' style='border-bottom: 1px solid #ccc'>
-                           <a class='white' data-turbolinks='false' href='bicicleta_encontrada.php' style='cursor: pointer'>¿Encontraste una bicicleta y crees que es robada? Reportala aquí
+                           <a class='white' data-turbolinks='false' href='reportar_vista.php' style='cursor: pointer'>¿Encontraste una bicicleta? Reportala aquí
                            </a>
                         </div>
                         <div class='row' id='search_panel' style='background: rgba(255,255,255,.95); color: rgb(102,102,102);'>
@@ -288,8 +288,8 @@ require_once (__DIR__."/../Controller/MDB/PerdidaMDB.php");
                                           <div class="bike-glass">
                                             <div class="col-xs-10 left">
                                               <div class="caption">
-                                                <div class="label label-danger stolen">
-                                                  <?php echo "Robada";?>
+                                                <div class="label label-danger Spotting">
+                                                  <?php echo "Vista";?>
                                                 </div>
                                               </div>
                                               <p>

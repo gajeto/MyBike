@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once (__DIR__."/../Controller/MDB/BicicletaMDB.php");
+require_once (__DIR__."/../Controller/MDB/PerdidaMDB.php");
 session_destroy();
 ?>
 
@@ -32,9 +32,9 @@ session_destroy();
             <div class='frost' style='margin: 0px; padding: 0px; margin-bottom: 50px; '>
                <div class='main div white'>
                   <span id='search_filter_form'>
-                     <form id="search_form" action="../Controller/Actions/cargar_bicicletas.php" accept-charset="UTF-8" data-remote="true" method="POST">
+                     <form id="search_form" action="../Controller/Actions/cargar_perdidas.php" accept-charset="UTF-8" data-remote="true" method="POST">
                         <div class='div blue_background' style='border-bottom: 1px solid #ccc'>
-                           <a class='white' data-turbolinks='false' href='bicicleta_encontrada.php' style='cursor: pointer'>¿Encontraste una bicicleta? Posteala en bicicletas encontradas.
+                           <a class='white' data-turbolinks='false' href='reportar_vista.php' style='cursor: pointer'>¿Viste una bicicleta y crees que es robada? Reportala aquí
                            </a>
                         </div>
                         <div class='row' id='search_panel' style='background: rgba(255,255,255,.95); color: rgb(102,102,102);'>
@@ -277,9 +277,10 @@ session_destroy();
         <span id='search_list' style='height: 100%;padding: 0px; margin: 0px;'>
            <div class='bike_search_list' style='margin-bottom: 80px;'>
               <input id='results_count' type='hidden' value='0'>
-                  <?php if (isset($_SESSION['b0'])): ?>
+                  <?php if (isset($_SESSION['p0'])): ?>
                         <?php foreach ($_SESSION as $i => $value): ?>
                             <?php $n = substr($i,-1)  ?>
+                            
                                 <div class="bike_result" data-id ="<?php echo $n ?>" style='position: relative;'>
                                     <div class="col-xs-12 bike_search_results  col-sm-6 col-md-4 col-lg-3" style="margin: 0px; padding: 0px; align: left;">
                                       <a href= "pagina_reporte.php" target="_blank">
@@ -287,20 +288,19 @@ session_destroy();
                                           <div class="bike-glass">
                                             <div class="col-xs-10 left">
                                               <div class="caption">
-                                                <div class="label label-danger stolen">
-                                                  <?php echo $_SESSION[$i]['ESTADO'];?>
+                                                <div class="label label-danger Stolen">
+                                                  <?php echo "Robada";?>
                                                 </div>
                                               </div>
                                               <p>
                                               <div class="title">
-                                                <?php echo $_SESSION[$i]['MARCA']; ?>
-                                                <?php echo $_SESSION[$i]['MODELO']; ?>
-                                              </div>
+                                                <?php echo $_SESSION[$i]['FECHA']; ?>
+                                                </div>
 
                                                 <div class="color">
                                                   Color:
                                                   <span>
-                                                    <?php echo $_SESSION[$i]['COLOR']; ?>
+                                                    <?php echo $_SESSION[$i]['HORA']; ?>
                                                   </span>
                                                   <br>
                                                 </div>
@@ -315,7 +315,7 @@ session_destroy();
 
 
                                               <div class="bike-type">
-                                                Bike Type: <?php echo $_SESSION[$i]['TIPO']; ?>
+                                                Bike Type: <?php echo $_SESSION[$i]['NOMBRE']; ?>
                                                 <br>
                                               </div>
 
