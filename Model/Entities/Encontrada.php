@@ -109,6 +109,15 @@ class Encontrada{
         return $this;
     }
 
+    public function getCodigo(){
+        return $this->codigo;
+    }
+
+    public function setCodigo($codigo){
+        $this->codigo = $codigo;
+        return $this;
+    }
+
      public function getTipo(){
         return $this->tipo;
     }

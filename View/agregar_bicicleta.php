@@ -191,7 +191,7 @@
 
                                        <hr>
                                        <input type="submit" name="commit" value="Registrar Bicicleta" class="btn form-submit" id="submit_btn" data-disable-with="Registrando"/>
-                                       <a class='btn' href='/bikes' id='clear_search'>Cancelar
+                                       <a class='btn' href='garaje.php' id='clear_search'>Cancelar
                                        </a>
                                     </div>
                                  </div>

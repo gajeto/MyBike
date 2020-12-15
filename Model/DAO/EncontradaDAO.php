@@ -36,7 +36,7 @@ class EncontradaDAO {
 
     public function leerEncontradas(){
         $data_source = new DataSource();
-        $data_table = $data_source->ejecutarConsulta("SELECT id,estado,numero_serial,nombre,marca,modelo,color1, color2,tipo,valor,extra_info FROM encontradas");
+        $data_table = $data_source->ejecutarConsulta("SELECT id,e_serial,marca,modelo,color1,color2,codigo,tipo,fecha,lugar,info_lugar,foto,detalles,email FROM encontradas");
         $encontrada=null;
         $encontradas=array();
         foreach($data_table as $indice=>$valor){
@@ -64,7 +64,7 @@ class EncontradaDAO {
     public function insertarEncontrada(Encontrada $encontrada){
         $data_source= new DataSource();
         $sql = "INSERT INTO encontradas (e_serial,marca,modelo,color1,color2,codigo,tipo,
-        fecha,lugar,info_lugar,foto,detalles,email) VALUES (:e_serial, :marca, :modelo, :color1, :color2, :codigo, :tipo, :fecha,: :lugar, :info_lugar, :foto, :detalles, :email)";
+        fecha,lugar,info_lugar,foto,detalles,email) VALUES (:e_serial, :marca, :modelo, :color1, :color2, :codigo, :tipo, :fecha, :lugar, :info_lugar, :foto, :detalles, :email)";
 
         $resultado = $data_source->ejecutarActualizacion($sql, array(
                 ':e_serial'=>$encontrada->getE_Serial(),

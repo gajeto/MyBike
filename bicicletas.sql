@@ -19,7 +19,7 @@ CREATE TABLE `bicicletas` (
     `modelo` VARCHAR(10) NOT NULL,
     `color1` VARCHAR(10) NOT NULL,
     `color2` VARCHAR(10) NOT NULL,
-    `tipo` VARCHAR(10) NOT NULL,
+    `tipo` VARCHAR(15) NOT NULL,
     `valor` VARCHAR(10) NOT NULL,
     `extra_info` VARCHAR(100) NOT NULL,
     

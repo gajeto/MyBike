@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once (__DIR__."/../Controller/MDB/PerdidaMDB.php");
+require_once (__DIR__."/../Controller/MDB/EncontradaMDB.php");
 session_destroy();
 ?>
 
@@ -277,7 +277,7 @@ session_destroy();
         <span id='search_list' style='height: 100%;padding: 0px; margin: 0px;'>
            <div class='bike_search_list' style='margin-bottom: 80px;'>
               <input id='results_count' type='hidden' value='0'>
-                  <?php if (isset($_SESSION['p0'])): ?>
+                  <?php if (isset($_SESSION['e0'])): ?>
                         <?php foreach ($_SESSION as $i => $value): ?>
                             <?php $n = substr($i,-1)  ?>
                             
@@ -293,14 +293,24 @@ session_destroy();
                                                 </div>
                                               </div>
                                               <p>
+
+                                                <div class="serial">
+                                                  Registrada:
+                                                  <span>
+                                                    <?php echo $_SESSION[$i]['FECHA']; ?>
+                                                  </span>
+                                                  <br>
+                                                </div>
+
                                               <div class="title">
-                                                <?php echo $_SESSION[$i]['FECHA']; ?>
+                                                <?php echo $_SESSION[$i]['MARCA']; ?>
+                                                <?php echo $_SESSION[$i]['MODELO']; ?>
                                                 </div>
 
                                                 <div class="color">
                                                   Color:
                                                   <span>
-                                                    <?php echo $_SESSION[$i]['HORA']; ?>
+                                                    <?php echo $_SESSION[$i]['COLOR']; ?>
                                                   </span>
                                                   <br>
                                                 </div>
@@ -315,7 +325,7 @@ session_destroy();
 
 
                                               <div class="bike-type">
-                                                Bike Type: <?php echo $_SESSION[$i]['NOMBRE']; ?>
+                                                Bike Type: <?php echo $_SESSION[$i]['TIPO']; ?>
                                                 <br>
                                               </div>
 
